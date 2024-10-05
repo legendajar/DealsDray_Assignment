@@ -1,8 +1,20 @@
-import React from 'react'
+import Navbar from '@/components/Navbar/Navbar'
+import Sidebar from '@/components/Sidebar/Sidebar'
+import DashboardSection from './DashboardSection'
+import AddEmployeeSection from './AddEmployeeSection'
+import ListEmployee from './ListEmployeeSection'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <>
+      <Navbar />
+      <div className='flex flex-row gap-4'>
+        <Sidebar />
+        {/* <DashboardSection /> */}
+        {/* <AddEmployeeSection /> */}
+        <ListEmployee />
+      </div>
+    </>
   )
 }
 
