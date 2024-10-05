@@ -39,8 +39,8 @@ app.get('/', (req, res) => {
         message: 'Welcome to the server!!'
     })
 })
-app.use('/admin', AdminRoute)
-app.use('/employee', EmployeeRoute)
+app.use('/api/admin', AdminRoute)
+app.use('/api/employee', EmployeeRoute)
 
 // Server
 app.listen(PORT, () => {
