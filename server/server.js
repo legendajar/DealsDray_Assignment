@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import { connectDB } from './db/db.config.js'
 import AdminRoute from './routes/login.route.js'
+import EmployeeRoute from './routes/employee.route.js'
 
 dotenv.config()
 
@@ -39,6 +40,7 @@ app.get('/', (req, res) => {
     })
 })
 app.use('/admin', AdminRoute)
+app.use('/employee', EmployeeRoute)
 
 // Server
 app.listen(PORT, () => {
