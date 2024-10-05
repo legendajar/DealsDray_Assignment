@@ -2,12 +2,16 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
+import { connectDB } from './db/db.config.js'
+import AdminRoute from './routes/login.route.js'
 
 dotenv.config()
 
-
 const app = express()
 const PORT = process.env.PORT;
+
+// Database Connection
+connectDB()
 
 // Middlewares
 app.use(express.json())
@@ -34,6 +38,7 @@ app.get('/', (req, res) => {
         message: 'Welcome to the server!!'
     })
 })
+app.use('/admin', AdminRoute)
 
 // Server
 app.listen(PORT, () => {

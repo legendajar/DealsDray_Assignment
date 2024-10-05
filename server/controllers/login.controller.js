@@ -33,7 +33,7 @@ export const adminRegister = async(req, res) => {
             })
         }
 
-        const isExists = await loginModel.findOne({ email: email });
+        const isExists = await loginModel.findOne({ username: username });
         if (isExists) {
             return res.status(400).json({
                 success: false,
@@ -53,7 +53,12 @@ export const adminRegister = async(req, res) => {
         return res.status(201).json({
             success: true,
             message: 'Login Created Successfully',
-            data: newAdmin
+            data: {
+                _id: newAdmin._id,
+                username: newAdmin.username,
+                createdAt: newAdmin.createdAt,
+                updatedAt: newAdmin.updatedAt
+            }
         })
     } catch (err) {
         console.log(err)
@@ -107,7 +112,10 @@ export const adminLogin = async (req, res) => {
             success: true,
             message: 'Login Successful',
             data: {
-                username: admin.username
+                _id: admin._id,
+                username: admin.username,
+                createdAt: admin.createdAt,
+                updatedAt: admin.updatedAt
             },
             token: token
         })
